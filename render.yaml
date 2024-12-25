@@ -1,0 +1,14 @@
+services:
+  - name: express-backend
+    type: web
+    env: node
+    region: oregon # Choose the appropriate region for your deployment
+    buildCommand: npm install
+    startCommand: node index.js
+    autoDeploy: true
+    plan: free # Use 'starter' or other plans if required
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000 # Port on which your app listens
