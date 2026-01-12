@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
@@ -87,6 +88,7 @@ router.post(
             const data = { user: { id: user.id } };
             const authToken = jwt.sign(data, JWT_SECRET);
             success = true;
+            console.log("++++++++++++++++", res.json);
             res.json({ success, authToken });
         } catch (error) {
             console.error(error.message);
