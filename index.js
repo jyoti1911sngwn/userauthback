@@ -1,11 +1,10 @@
 const connectToMongo = require('./db'); // Import the connectToMongo function
 const express = require('express');
 const cors = require('cors');
-require("./controller/googleAuth");
 const passport = require("passport");
 // Call the connectToMongo function to establish a connection to MongoDB
+require("./controller/googleAuth"); 
 connectToMongo();
-
 const app = express();
 app.use(passport.initialize());
 
