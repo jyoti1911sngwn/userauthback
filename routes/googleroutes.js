@@ -20,7 +20,6 @@ router.get(
         id: user._id,
         name: user.name,
         email: user.email,
-        avatar: user.avatar,
       },
       process.env.JWT_SECRET,
       { expiresIn: "7d" }
