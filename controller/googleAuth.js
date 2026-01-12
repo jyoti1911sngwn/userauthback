@@ -8,9 +8,9 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "/google/callback",
+      callbackURL: `${process.env.BACKEND_URL}/google/callback`,
       scope: ["profile", "email"],
-      accessType: "offline" 
+      accessType: "offline",
     },
     async (accessToken, refreshToken, profile, done) => {
       let user = await User.findOne({ email: profile.emails[0].value });
@@ -44,4 +44,3 @@ passport.use(
 //   const { credentials } = await oauth2Client.refreshAccessToken();
 //   return credentials.access_token;
 // }
-
